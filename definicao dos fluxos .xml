@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes>
+  
+    <vType id="Carro" accel="1.8" decel="3.5" length="5.0" minGap="2" maxSpeed="200" sigma="0.5"  tau="1" impatience="0.6" timeToMaxImpatience="25" startupDelay="0" />
+    <vType id="Moto" vClass="motorcycle" accel="1.5" decel="3.5" length="2.5" minGap="2" maxSpeed="200" tau="1"  sigma="0.5" impatience="0.6" timeToMaxImpatience="10" startupDelay="0" />
+    <vType id="Caminhao" vClass="truck" accel="0.9" decel="3.5" length="7.1" minGap="2" maxSpeed="130" tau="1" sigma="0.5" impatience="0.2" startupDelay="0" />
+    <vType id="SemieReboque" vClass="trailer" accel="0.9" decel="3.5" length="16.5" minGap="2" tau="1" sigma="0.5" maxSpeed="130" startupDelay="0" />
+    <vType id="Onibus" vClass="bus" accel="0.9" decel="3.5" length="12" minGap="2" sigma="0.5" tau="1" maxSpeed="85" startupDelay="0" />
+    <vType id="Bicicleta" vClass="bicycle" />
+    <vType id="Pedestres" vClass="pedestrian" sidewalkWidth="0" />
+
+    <route id="av.utf" color="1,1,0" edges="A1 A12 A13"/>
+    <route id="av.utf.copel" color="1,1,0" edges="A1 A2 A3"/>
+    <route id="copel.av" color="1,1,0" edges="A9 A11 A12 A13"/>
+    <route id="av.centro" color="1,1,0" edges="A14 A15 A17 A18"/>
+    <route id="av.centro.copel" color="1,1,0" edges="A14 A16 A2 A3"/>
+    <route id="av.piaui" color="1,1,0" edges="A14 A15 A20"/>
+    <route id="piaui.av" color="10,10,0" edges="A19 A17 A18"/>
+    <route id="e.m.av" color="1,1,0" edges="A1 A12 E4 E3 A3"/>
+    <route id="e.m.c" color="1,1,0" edges="A9 E1 E2 A13"/>
+    
+
+    
+	<flow id="FluxoA-B-15" color="255, 255, 0"  begin="0" end= "3600" number="2" type="Bicicleta" departLane= "1" route="av.utf" departSpeed= "random" />
+	<flow id="FluxoB-B-15" color="255, 255, 0"  begin="0" end= "3600" number="2" type="Bicicleta" departLane= "1" route="av.centro" departSpeed= "random" />
+	<flow id="FluxoD-B-15" color="255, 255, 0"  begin="0" end= "3600" number="2" type="Bicicleta" departLane= "1" route="av.centro.copel" departSpeed= "random" />
+	<flow id="FluxoE-B-15" color="255, 255, 0"  begin="0" end= "3600" number="2" type="Bicicleta" departLane= "1" route="copel.av" departSpeed= "random" />
+
+
+	<flow id="FluxoA-C-15" color="255, 51, 255"  begin="0" end= "900" number="99" type="Carro" departLane= "random" departPos= "free" route="av.utf" departSpeed= "random" />
+	<flow id="FluxoB-C-15" color="255, 51, 255"  begin="0" end= "900" number="141" type="Carro" departLane= "best" route="av.centro" departSpeed= "random" />
+	<flow id="FluxoC-C-15" color="255, 51, 255"  begin="0" end= "900" number="21" type="Carro" departLane= "best" route="av.utf.copel" departSpeed= "random" />
+	<flow id="FluxoD-C-15" color="255, 51, 255"  begin="0" end= "900" number="40" type="Carro" departLane= "1" route="av.centro.copel" departSpeed= "random" />
+	<flow id="FluxoE-C-15" color="255, 51, 255"  begin="0" end= "900" number="32" type="Carro" departLane= "random" route="copel.av" departSpeed= "random" />
+	<flow id="FluxoF-C-15" color="255, 51, 255"  begin="0" end= "900" number="1" type="Carro" departLane= "random" route="av.piaui" departSpeed= "random" />
+	<flow id="FluxoG-C-15" color="255, 51, 255"  begin="0" end= "900" number="2" type="Carro" departLane= "random" route="piaui.av" departSpeed= "random" />
+	<flow id="Fluxo-EMA-15" color="255, 51, 255"  begin="0" end= "900" number="4" type="Carro" departLane= "random" route="e.m.av" departSpeed= "random" />
+	<flow id="Fluxo-EMC-15" color="255, 51, 255"  begin="0" end= "900" number="7" type="Carro" departLane= "random" route="e.m.c" departSpeed= "random" />
+
+	<flow id="FluxoA-M-15" color="51, 255, 51"  begin="0" end= "900" number="17" type="Moto" departLane= "random" departPos="free" route="av.utf" departSpeed= "random" />
+	<flow id="FluxoB-M-15" color="51, 255, 51"  begin="0" end= "900" number="18" type="Moto" departLane= "best" route="av.centro" departSpeed= "random" />
+	<flow id="FluxoC-M-15" color="51, 255, 51"  begin="0" end= "900" number="2" type="Moto" departLane= "best" route="av.utf.copel" departSpeed= "random" />
+	<flow id="FluxoD-M-15" color="51, 255, 51"  begin="0" end= "900" number="4" type="Moto" departLane= "1" route="av.centro.copel" departSpeed= "random" />
+	<flow id="FluxoE-M-15" color="51, 255, 51"  begin="0" end= "900" number="6" type="Moto" departLane= "random" route="copel.av" departSpeed= "random" />
+	<flow id="FluxoG-M-15" color="51, 255, 51"  begin="0" end= "900" number="1" type="Moto" departLane= "random" route="piaui.av" departSpeed= "random" />
+
+	<flow id="FluxoC-CM-15" color="92, 92, 214"  begin="120" end= "900" number="1" type="Caminhao" departLane= "best" route="av.utf.copel" departSpeed= "random"/>
+	<flow id="FluxoA-CM-15" color="92, 92, 214"  begin="180" end= "900" number="1" type="Caminhao" departLane= "random" departPos= "free" route="av.utf" departSpeed= "random" />
+	<flow id="FluxoB-CM-15" color="92, 92, 214"  begin="240" end= "900" number="1" type="Caminhao" departLane= "best" route="av.centro" departSpeed= "random" />
+	<flow id="FluxoD-CM-15" color="92, 92, 214"  begin="240" end= "900" number="1" type="Caminhao" departLane= "1" route="av.centro.copel" departSpeed= "random" />
+	<flow id="FluxoA-R-15" color="163, 26, 255" begin="300" end= "900" number="0" type="SemieReboque"  departLane= "random" departPos= "free" route="av.utf" departSpeed= "random" />	
+	<flow id="FluxoE-O-15" color="0, 64, 255"  begin="360" end= "900" number="1" type="Onibus" departLane= "random" route="copel.av" departSpeed= "random" />
+	<flow id="FluxoB-O-15" color="0, 64, 255"  begin="480" end= "500" number="2" type="Onibus" departLane= "best" route="av.centro" departSpeed= "random" >
+	<stop busStop="parada2" duration= "15"/>
+	</flow>
+	<flow id="FluxoA-O-15" color="0, 64, 255"  begin="540" end= "900" number="1" type="Onibus" departLane= "1" route="av.utf" departSpeed= "random" >
+	<stop busStop="parada1" duration= "15"/>
+	</flow>
+	
+		
+	<flow id="Fluxo-EMA-30" color="255, 51, 255"  begin="900" end= "1800" number="5" type="Carro" departLane= "random" route="e.m.av" departSpeed= "random" />
+	<flow id="Fluxo-EMC-30" color="255, 51, 255"  begin="900" end= "1800" number="4" type="Carro" departLane= "random" route="e.m.c" departSpeed= "random" />
+	<flow id="FluxoA-C-30" color="255, 0, 255"  begin="900" end= "1860" number="125" type="Carro" departLane= "random" departPos= "free" departSpeed= "random" route="av.utf"  />
+	<flow id="FluxoC-C-30" color="255, 0, 255"  begin="900" end= "1800" number="30" type="Carro" departLane= "1" route="av.utf.copel" departSpeed= "random" />
+	<flow id="FluxoE-C-30" color="255, 0, 255"  begin="900" end= "1800" number="35" type="Carro" departLane= "random" route="copel.av" departSpeed= "random" />
+	<flow id="FluxoG-C-30" color="255, 0, 255"  begin="900" end= "1800" number="5" type="Carro" departLane= "random" route="piaui.av" departSpeed= "random" />
+	<flow id="FluxoA-M-30" color="26, 255, 26"  begin="900" end= "1800" number="13" type="Moto" departLane= "random" departPos= "free" route="av.utf" departSpeed= "random"/>
+	<flow id="FluxoB-M-30" color="26, 255, 26"  begin="900" end= "1800" number="20" type="Moto" departLane= "1" route="av.centro" departSpeed= "random" />
+	<flow id="FluxoC-M-30" color="26, 255, 26"  begin="900" end= "1800" number="2" type="Moto" departLane= "best" route="av.utf.copel" departSpeed= "random" />
+
+	<flow id="FluxoE-M-30" color="26, 255, 26"  begin="900" end= "1800" number="4" type="Moto" departLane= "random" route="copel.av" departSpeed= "random" />
+	<flow id="FluxoG-M-30" color="26, 255, 26"  begin="900" end= "1800" number="2" type="Moto" departLane= "random" route="piaui.av" departSpeed= "random" />
+
+	<flow id="FluxoA-CM-30" color="71, 71, 209"  begin="900" end= "1080" number="2" type="Caminhao" departLane= "random" departPos= "free" route="av.utf" departSpeed= "random" />
+	<flow id="FluxoB-CM-30" color="71, 71, 209"  begin="900" end= "1800" number="1" type="Caminhao" departLane= "1" route="av.centro" departSpeed= "random" />
+	<flow id="FluxoB-R-30" color="153, 0, 255"  begin="900" end= "1800" number="1" type="SemieReboque" departLane= "1" route="av.centro"  departSpeed= "random"/>
+	<flow id="FluxoD-M-30" color="26, 255, 26"  begin="900" end= "1800" number="7" type="Moto" departLane= "1" route="av.centro.copel" departSpeed= "random" />
+	<flow id="FluxoD-C-30" color="255, 0, 255"  begin="900" end= "1800" number="51" type="Carro" departLane= "2" departSpeed= "random" route="av.centro.copel"  />
+	<flow id="FluxoB-C-30" color="255, 0, 255"  begin="900" end= "1800" number="121" type="Carro" departLane= "2" route="av.centro" departSpeed= "random" />
+	
+	<flow id="FluxoA-O-30" color="0, 57, 230"  begin="1080" end= "1800" number="1" type="Onibus" departLane= "1" route="av.utf" departSpeed= "random"  >
+	<stop busStop="parada1" duration= "15"/>
+	</flow>	
+	<flow id="FluxoD-CM-30" color="71, 71, 209"  begin="1120" end= "1800" number="2" type="Caminhao" departLane= "2" route="av.centro.copel"  departSpeed= "random" />
+	<flow id="FluxoE-CM-30" color="71, 71, 209"  begin="1140" end= "1800" number="1" type="Caminhao" departLane= "random" route="copel.av" departSpeed= "random" />
+
+	<flow id="FluxoE-R-30" color="153, 0, 255"  begin="1440" end= "1800" number="0" type="SemieReboque" departLane= "random" route="copel.av" departSpeed= "random" />
+	<flow id="FluxoB-O-30" color="0, 57, 230"  begin="1440" end= "1470" number="1" type="Onibus" departLane= "1" route="av.centro" departSpeed= "random" >
+	<stop busStop="parada2" duration= "15"/>
+	</flow>
+	
+	<flow id="FluxoB-O-30-2" color="0, 57, 230"  begin="1740" end= "1800" number="1" type="Onibus" departLane= "1" route="av.centro" departSpeed= "random" >
+	<stop busStop="parada2" duration= "15"/>
+	</flow>
+
+	<flow id="FluxoC-B-15" color="255, 255, 0"  begin="1800" end= "2700" number="2" type="Bicicleta" departLane= "1" route="av.utf.copel" departSpeed= "random" />
+
+	<flow id="Fluxo-EMA-45" color="255, 51, 255"  begin="1800" end= "2700" number="3" type="Carro" departLane= "random" route="e.m.av" departSpeed= "random" />
+	<flow id="Fluxo-EMC-45" color="255, 51, 255"  begin="1800" end= "2700" number="6" type="Carro" departLane= "random" route="e.m.c" departSpeed= "random"  />
+	<flow id="FluxoA-C-45" color="230, 0, 230"  begin="1800" end= "2500" number="60" type="Carro" departLane= "random" departPos= "free" route="av.utf" departSpeed= "random" />
+	<flow id="FluxoB-C-45" color="230, 0, 230"  begin="1800" end= "2700" number="142" type="Carro" departLane= "1" route="av.centro" departSpeed= "random" />
+	<flow id="FluxoC-C-45" color="230, 0, 230"  begin="1800" end= "2700" number="32" type="Carro" departLane= "best" route="av.utf.copel" departSpeed= "random" />
+	<flow id="FluxoD-C-45" color="230, 0, 230"  begin="1800" end= "2700" number="53" type="Carro" departLane= "2" route="av.centro.copel" departSpeed= "random" />
+	<flow id="FluxoE-C-45" color="230, 0, 230"  begin="1800" end= "2700" number="45" type="Carro" departLane= "random" route="copel.av" departSpeed= "random" />
+	<flow id="FluxoF-C-45" color="230, 0, 230"  begin="1800" end= "2700" number="2" type="Carro" departLane= "random" route="av.piaui" departSpeed= "random" />
+	<flow id="FluxoG-C-45" color="230, 0, 230"  begin="1800" end= "2700" number="2" type="Carro" departLane= "random" route="piaui.av" departSpeed= "random" />
+
+	<flow id="FluxoA-M-45" color="0, 255, 0"  begin="1800" end= "2700" number="19" type="Moto" departLane= "random" departPos= "free" route="av.utf" departSpeed= "random" />
+	<flow id="FluxoB-M-45" color="0, 255, 0"  begin="1800" end= "2700" number="30" type="Moto" departLane= "1" route="av.centro" departSpeed= "random" />
+	<flow id="FluxoC-M-45" color="0, 255, 0"  begin="1800" end= "2700" number="3" type="Moto" departLane= "best" route="av.utf.copel" departSpeed= "random" />
+	<flow id="FluxoD-M-45" color="0, 255, 0"  begin="1800" end= "2700" number="7" type="Moto" departLane= "2" route="av.centro.copel" departSpeed= "random" />
+	<flow id="FluxoE-M-45" color="0, 255, 0"  begin="1800" end= "2700" number="5" type="Moto" departLane= "random" route="copel.av" departSpeed= "random" />
+	<flow id="FluxoF-M-45" color="0, 255, 0"  begin="1800" end= "2700" number="0" type="Moto" departLane= "random" route="av.piaui" departSpeed= "random" />
+	<flow id="FluxoG-M-45" color="0, 255, 0"  begin="1800" end= "2700" number="1" type="Moto" departLane= "random" route="piaui.av" departSpeed= "random" />
+	
+	<flow id="FluxoA-CM-45" color="51, 51, 204"  begin="1920" end= "2700" number="2" type="Caminhao" departLane= "random" departPos= "free" route="av.utf" departSpeed= "random" />
+	<flow id="FluxoB-O-45" color="0, 51, 204"  begin="1980" end= "2700" number="1" type="Onibus" departLane= "1" route="av.centro" departSpeed= "random" >
+	<stop busStop="parada2" duration= "15"/>
+	</flow>	
+	<flow id="FluxoA-R-45" color="138, 0, 230"  begin="2340" end= "2700" number="0" type="SemieReboque" departLane= "random" departPos= "free" route="av.utf" departSpeed= "random" />
+	<flow id="FluxoA-O-45" color="0, 51, 204"  begin="2460" end= "2700" number="1" type="Onibus" departLane= "1" route="av.utf" departSpeed= "random" >
+	<stop busStop="parada1" duration= "15"/>
+	</flow>
+	<flow id="FluxoA-C-45-2" color="230, 0, 230"  begin="2500" end= "2700" number="41" type="Carro" departLane= "random" departPos= "free" route="av.utf" departSpeed= "random" />
+	<flow id="FluxoE-CM-45" color="51, 51, 204"  begin="2640" end= "2700" number="1" type="Caminhao" departLane= "random" route="copel.av" departSpeed= "random" />
+
+	<flow id="FluxoB-B-60" color="255, 255, 0"  begin="2700" end= "3600" number="5" type="Bicicleta" departLane= "1" route="av.centro" departSpeed= "random" />
+
+	<flow id="Fluxo-EMA-60" color="255, 51, 255"  begin="2700" end= "3600" number="6" type="Carro" departLane= "random" route="e.m.av" departSpeed= "random" />
+	<flow id="Fluxo-EMC-60" color="255, 51, 255"  begin="2700" end= "3600" number="10" type="Carro" departLane= "random" route="e.m.c" departSpeed= "random" />
+	<flow id="FluxoA-C-60" color="204, 0, 204"  begin="2700" end= "3150" number="70" type="Carro" departLane= "random" departPos= "free" departSpeed="random" route="av.utf" />
+	<flow id="FluxoB-C-60" color="204, 0, 204"  begin="2700" end= "3600" number="107" type="Carro" departLane= "1" departSpeed="random" route="av.centro"  />	
+	<flow id="FluxoC-C-60" color="204, 0, 204"  begin="2700" end= "3600" number="36" type="Carro" departLane= "best" departSpeed="random" route="av.utf.copel"  />
+	<flow id="FluxoD-C-60" color="204, 0, 204"  begin="2700" end= "3600" number="49" type="Carro" departLane= "2" route="av.centro.copel" departSpeed= "random" />	
+	<flow id="FluxoE-C-60" color="204, 0, 204"  begin="2700" end= "3600" number="40" type="Carro" departLane= "random" departSpeed="random" route="copel.av" />
+	<flow id="FluxoF-C-60" color="204, 0, 204"  begin="2700" end= "3600" number="2" type="Carro" departLane= "random" departSpeed="random"  route="av.piaui"  />
+	<flow id="FluxoG-C-60" color="204, 0, 204"  begin="2700" end= "3600" number="2" type="Carro" departLane= "random" departSpeed="random" route="piaui.av" />
+	
+	<flow id="FluxoA-M-60" color="0, 230, 0"  begin="2700" end= "3600" number="19" type="Moto" departLane= "random" departPos= "free" departSpeed="random" route="av.utf"  />
+	<flow id="FluxoB-M-60" color="0, 230, 0"  begin="2700" end= "3600" number="27" type="Moto" departLane= "1" departSpeed="random" route="av.centro"  />
+	<flow id="FluxoC-M-60" color="0, 230, 0"  begin="2700" end= "3600" number="2" type="Moto" departLane= "best" departSpeed="random" route="av.utf.copel"  />
+	<flow id="FluxoD-M-60" color="0, 230, 0"  begin="2700" end= "3600" number="9" type="Moto" departLane= "2" route="av.centro.copel" departSpeed= "random" />	
+	<flow id="FluxoE-M-60" color="0, 230, 0"  begin="2700" end= "3600" number="3" type="Moto" departLane= "random" departSpeed="random" route="copel.av"  />
+	<flow id="FluxoF-M-60" color="0, 230, 0"  begin="2700" end= "3600" number="0" type="Moto" departLane= "random" departSpeed="random" route="av.piaui"  />
+	<flow id="FluxoG-M-60" color="0, 230, 0"  begin="2700" end= "3600" number="0" type="Moto" departLane= "random" departSpeed="random" route="piaui.av"  />
+	
+	<flow id="FluxoE-CM-60" color="46, 46, 184"  begin="2700" end= "3600" number="1" type="Caminhao" departLane= "random" departSpeed="random" route="copel.av"  />
+	<flow id="FluxoA-O-60" color="0, 45, 179"  begin="2940" end= "3600" number="2" type="Onibus" departLane= "1" departSpeed="random" route="av.utf"  >
+	<stop busStop="parada1" duration= "15"/>
+	</flow>
+	<flow id="FluxoA-C-60-2" color="204, 0, 204"  begin="2950" end= "3600" number="52" type="Carro" departLane= "random" departPos= "free" departSpeed="random" route="av.utf" />	
+
+	<flow id="FluxoB-O-60" color="0, 45, 179"  begin="3060" end= "3600" number="1" type="Onibus" departLane= "1" departSpeed="random" route="av.centro"  >
+	<stop busStop="parada2" duration= "15"/>
+	</flow>		
+
+	<flow id="FluxoB-CM-60" color="46, 46, 184"  begin="3180" end= "3600" number="1" type="Caminhao" departLane= "1" departSpeed="random" route="av.centro"  />
+	
+	<flow id="FluxoD-CM-60" color="46, 46, 184"  begin="3360" end= "3600" number="1" type="Caminhao" departLane= "2" departSpeed="random" route="av.centro.copel"  />
+	
+	
+
+
+
+
+
+
+
+
+
+</routes>
